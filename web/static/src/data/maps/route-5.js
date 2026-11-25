@@ -88,7 +88,7 @@ export default {
   items: [
     { x: 2, y: 20, item: "great-orb" },
     { x: 17, y: 30, item: "tonic-plus" },
-    { x: 17, y: 8, item: "leaf-stone" },
+    { x: 17, y: 8, item: "bloomstone" },
     { x: 1, y: 37, item: "remedy-spray", hidden: true },
     { x: 16, y: 21, item: "rouse-salts", hidden: true },
   ],

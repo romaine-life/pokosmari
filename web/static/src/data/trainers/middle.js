@@ -188,7 +188,7 @@ export default [
     party: [{ species: "sprounip", level: 26 }, { species: "plumawing", level: 26 }, { species: "cosmustag", level: 26 }],
     intro: "A battle on a lovely day? Why not!",
     defeat: "How unlovely.",
-    after: "A Leaf Stone makes Sprounip bloom. Isn't that sweet?",
+    after: "A Bloomstone makes Sprounip bloom. Isn't that sweet?",
   },
   {
     id: "route5-hiker", name: "Burl", className: "Hiker", sprite: "hiker",

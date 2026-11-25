@@ -99,14 +99,22 @@ type Dex struct {
 
 var levelHow = regexp.MustCompile(`^Lv\. (\d+)$`)
 
+// Stones maps the generator's name for an evolution stone to the game's own item name.
+// The generator builds its names from move words, which can match another game's items, so
+// the dex never carries them; a stone missing here has no item in the game.
+var Stones = map[string]string{
+	"Hyper Stone": "Hyper Stone",
+	"Leaf Stone":  "Bloomstone",
+}
+
 // Usable reports whether a family can be in the game: every evolution is by level or by a
-// stone the shops can sell, and it isn't the generator's shiny variant.
+// stone the game has an item for, and it isn't the generator's shiny variant.
 func Usable(m gen.Monster) bool {
 	if m.Shiny {
 		return false
 	}
 	for _, e := range m.Evolution[1:] {
-		if !levelHow.MatchString(e.How) && !strings.HasSuffix(e.How, " Stone") {
+		if !levelHow.MatchString(e.How) && Stones[e.How] == "" {
 			return false
 		}
 	}
@@ -152,7 +160,7 @@ func Build(roster []Family) (Dex, error) {
 				if g := levelHow.FindStringSubmatch(next.How); g != nil {
 					e.Level, _ = strconv.Atoi(g[1])
 				} else {
-					e.Item = next.How
+					e.Item = Stones[next.How]
 				}
 				s.Evolution = e
 			}

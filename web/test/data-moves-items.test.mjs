@@ -16,7 +16,9 @@ const BORROWED_MOVES = ["tackle", "scratch", "growl", "ember", "water gun", "vin
 const BORROWED_ITEMS = ["poke ball", "poké ball", "great ball", "ultra ball", "master ball", "potion", "super potion",
   "hyper potion", "max potion", "full restore", "revive", "max revive", "antidote", "burn heal", "ice heal", "awakening",
   "paralyze heal", "full heal", "ether", "max ether", "elixir", "x attack", "x defense", "x speed", "repel", "super repel",
-  "escape rope", "rare candy", "bicycle", "old rod", "good rod", "town map"];
+  "escape rope", "rare candy", "bicycle", "old rod", "good rod", "town map", "fire stone", "water stone",
+  "thunder stone", "thunderstone", "leaf stone", "moon stone", "sun stone", "shiny stone", "dusk stone", "dawn stone",
+  "ice stone", "oval stone", "everstone"];
 
 test("moves are well formed", () => {
   const ids = new Set();

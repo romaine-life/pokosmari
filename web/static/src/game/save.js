@@ -28,6 +28,13 @@ export function migrate(data) {
     throw new Error(`this save is from a newer version of the game (save version ${data.version})`);
   }
   // Version 1 is the first; later versions add their steps here, oldest first.
+  if (data.version < 2) {
+    // 2: the Leaf Stone became the Bloomstone.
+    const bag = data.bag ?? {};
+    if (bag["leaf-stone"]) bag.bloomstone = (bag.bloomstone ?? 0) + bag["leaf-stone"];
+    delete bag["leaf-stone"];
+    data.version = 2;
+  }
   if (!Array.isArray(data.party) || typeof data.pos?.map !== "string") {
     throw new Error("this save is missing its party or position");
   }

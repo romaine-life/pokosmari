@@ -1,7 +1,7 @@
 // @ts-check
-// Every item. Names are pokosmari's own, except the evolution stones, which carry the names
-// species.json gives them (the generator names them; a species evolves with the item whose
-// name matches its `evolution.item`).
+// Every item; the names are pokosmari's own. A species evolves with the stone whose name
+// matches its `evolution.item` in species.json, which the dex builder's Stones table
+// (internal/species) gives in the game's names.
 //
 // `battle` and `field` are data: the battle engine applies `battle`, the overworld `field`.
 
@@ -103,7 +103,7 @@ export const ITEMS = [
 
   // Evolution stones (names as species.json writes them)
   it("hyper-stone", "Hyper Stone", 2100, "items", "A dense, humming stone that makes certain creatures evolve.", { field: { kind: "evolve", item: "Hyper Stone" } }),
-  it("leaf-stone", "Leaf Stone", 2100, "items", "A stone with a leaf pattern that makes certain creatures evolve.", { field: { kind: "evolve", item: "Leaf Stone" } }),
+  it("bloomstone", "Bloomstone", 2100, "items", "A green stone veined like a leaf that makes certain creatures evolve.", { field: { kind: "evolve", item: "Bloomstone" } }),
 
   // Key items: tools
   it("brush-cutter", "Brush Cutter", 0, "key", "Clears small trees out of the way.", { field: { kind: "key", use: "brush-cutter" } }),

@@ -34,7 +34,7 @@
  * @property {number} savedAt       ms since epoch, 0 if never saved
  */
 
-export const STATE_VERSION = 1;
+export const STATE_VERSION = 2;
 export const PARTY_MAX = 6;
 export const BOX_MAX = 240;
 
