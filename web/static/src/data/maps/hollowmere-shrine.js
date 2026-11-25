@@ -1,7 +1,19 @@
 // @ts-check
 // The Stillwater Shrine. The first time the player walks in, the Syndicate is taking the
 // Storm Bell: a battle with Admin Sable (win or lose), then they escape ("bell-stolen").
-// The keeper tells the legend of Trancedome.
+// The keeper tells the legend of Trancedome, and takes the bell back once the player
+// brings it down from Skyreach Summit ("bell-returned").
+
+/** @param {import("../../script/context.js").ScriptContext} g */
+async function returnBell(g) {
+  await g.say("Keeper: That hum... the Storm Bell! You brought it home!");
+  g.take("storm-bell");
+  g.setFlag("bell-returned");
+  g.sfx("statup");
+  await g.say("{PLAYER} handed over the Storm Bell.");
+  await g.say("Keeper: So it rang on the peak, and Trancedome woke calm.\fThen the old tales were true. A greedy hand rang it, and still no storm came.\fPerhaps because a calm heart was standing beside it.\fIt will rest here now, and ring for no one. Please, take this. It's all I have to give.");
+  await g.give("dawn-bloom");
+}
 
 /** @param {import("../../script/context.js").ScriptContext} g */
 async function heist(g) {
@@ -63,6 +75,14 @@ export default {
       script: async (g) => {
         if (!g.flag("bell-stolen")) {
           await g.say("Please, stop them!");
+          return;
+        }
+        if (g.has("storm-bell")) {
+          await returnBell(g);
+          return;
+        }
+        if (g.flag("bell-returned")) {
+          await g.say("Keeper: Hear how still the shrine is? The bell is home.\fWhen the weather is fair over the Isles, I think of you.");
           return;
         }
         await g.say("The bell calls Trancedome from its sleep on Skyreach Peak.\fTrancedome answers only a calm heart. Pray the Syndicate never learns that.\fLady Vesper waits at her spire.");

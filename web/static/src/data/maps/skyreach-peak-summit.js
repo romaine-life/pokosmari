@@ -1,6 +1,16 @@
 // @ts-check
 // Skyreach Summit: the last battle with Director Halvard. The Storm Bell rings and
-// Trancedome wakes, calm. It stays at the summit until the player catches it.
+// Trancedome wakes, calm. It stays at the summit until the player catches it. Halvard
+// leaves the bell in the snow where he stood; the player carries it back to the
+// Stillwater Shrine ("bell-recovered", then "bell-returned" there).
+
+/** @type {import("../../world/map.js").Script} */
+async function bell(g) {
+  await g.say("The Storm Bell lies in the snow, quiet now.\fIt belongs back at the shrine in Hollowmere.");
+  g.hide("bell");
+  g.setFlag("bell-recovered");
+  await g.give("storm-bell");
+}
 
 /** @type {import("../../world/map.js").Script} */
 async function trancedome(g) {
@@ -33,12 +43,13 @@ async function finale(g) {
   await g.say("The clouds parted.\nSomething vast and\ngentle settled\fonto the summit.");
   await g.say("HALVARD: Trancedome!\nI command you!\fI... command...\f...It isn't\nlistening. It's\njust... looking.\fNot angry. Not\nobedient. Calm.\fIt never needed a\nmaster. It only\nneeded to be left\falone. And I rang\nthe bell anyway.");
   g.face("halvard", "down");
-  await g.say("HALVARD: {PLAYER}.\nThe Eclipse\nSyndicate is\ffinished. I'll tell\nthem so myself.\fI'm leaving the\nIsles. Look after\nit, and after them.\fBetter than I\nwould have.");
+  await g.say("HALVARD: {PLAYER}.\nThe Eclipse\nSyndicate is\ffinished. I'll tell\nthem so myself.\fI'm leaving the\nIsles. Look after\nit, and after them.\fBetter than I\nwould have.\fThe bell stays\nhere. Take it home\nto its shrine.");
   g.hide("halvard");
   g.sfx("door");
   g.setFlag("halvard-defeated");
   g.mapMusic();
   await g.say("Halvard walked off\ndown the mountain.\fThe storm over the\npeak is gone. The\nroad north is open.");
+  await bell(g);
   await trancedome(g);
 }
 
@@ -71,6 +82,8 @@ export default {
   npcs: [
     { id: "halvard", x: 9, y: 3, sprite: "boss", dir: "down", move: "still", hideIf: "halvard-defeated",
       script: finale },
+    { id: "bell", x: 9, y: 3, sprite: "itemball", showIf: "halvard-defeated", hideIf: "bell-recovered",
+      script: bell },
     { id: "trancedome", x: 9, y: 1, sprite: "creature", dir: "down", move: "still",
       showIf: "trancedome-awake", hideIf: "trancedome-caught", script: trancedome },
   ],

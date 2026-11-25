@@ -17,6 +17,7 @@ gathering the pieces it needs to wake Trancedome, the Isles' sleeping guardian, 
 whoever wakes it commands the weather of the Isles. They steal the Storm Bell from the
 shrine at Hollowmere, take over the Frostmere Observatory, and climb Skyreach Peak to ring
 it. The player beats Halvard at the summit; Trancedome wakes, calm, and can be caught.
+Halvard leaves the bell behind, and the player takes it home to the shrine.
 Then the eighth Warden, Victory Road and the High Council; the champion is Kip.
 
 Kip turns up between most towns to battle, a step ahead and teasing, and grows into a
@@ -43,7 +44,7 @@ friendly rival by the end.
 | 15 | `voltreach-spire` | spire | | Warden **Ozzie**, electric, ace Lv. 29 |
 | 16 | `route-5` | route (meadow) | 23–27 | 5 trainers; the fisher's brother gives the **Good Rod** |
 | 17 | `hollowmere-cave` | dark cave | 24–29 | Needs the Lantern; 2 floors, ladders, 4 trainers |
-| 18 | `hollowmere` | town (forest, misty) | none | Stillwater Shrine (`hollowmere-shrine`): the Syndicate steals the Storm Bell; the player fights an admin and loses the chase |
+| 18 | `hollowmere` | town (forest, misty) | none | Stillwater Shrine (`hollowmere-shrine`): the Syndicate steals the Storm Bell; the player fights an admin and loses the chase. After the summit the keeper takes the bell back and gives a Dawn Bloom |
 | 19 | `hollowmere-spire` | spire | | Warden **Vesper**, ghost, ace Lv. 34 |
 | 20 | `route-6` | route (meadow, cliffs) | 28–32 | 5 trainers; Kip battle 4 (ace Lv. 35) |
 | 21 | `ironvale` | town (city, mining) | none | The foreman gives the **Power Gloves** to clear the mine |
@@ -53,7 +54,7 @@ friendly rival by the end.
 | 25 | `frostmere` | town (snow) | none | |
 | 26 | `frostmere-observatory` | Syndicate HQ | | 3 floors: the **Syndicate Keycard** opens the doors; admins; Director Halvard battle 1 (ace Lv. 42) |
 | 27 | `frostmere-spire` | spire | | Warden **Yuki**, ice, ace Lv. 43 |
-| 28 | `skyreach-peak` | mountain path to the summit | 38–43 | Halvard rings the Storm Bell; final battle with him (ace Lv. 46); **Trancedome** Lv. 45 wakes and can be fought and caught |
+| 28 | `skyreach-peak` | mountain path to the summit | 38–43 | Halvard rings the Storm Bell; final battle with him (ace Lv. 46); **Trancedome** Lv. 45 wakes and can be fought and caught; Halvard leaves the Storm Bell where he stood |
 | 29 | `route-8` | route (cliffs) | 38–42 | 6 trainers |
 | 30 | `skyreach` | city on cliffs | none | |
 | 31 | `skyreach-spire` | spire | | Warden **Corvin**, dragon, ace Lv. 48 |
