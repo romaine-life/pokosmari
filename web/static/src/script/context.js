@@ -348,6 +348,22 @@ export class ScriptContext {
     p.dir = OPPOSITE[a.dir];
   }
 
+  /**
+   * Walk someone back to the tile the map put them on, facing the way they stood there:
+   * a trainer who walked over to the player goes back to their post.
+   * @param {string} id
+   */
+  async goHome(id) {
+    const a = this.world.actor(id);
+    for (let guard = 0; guard < 40 && (a.x !== a.homeX || a.y !== a.homeY); guard++) {
+      const dx = a.homeX - a.x, dy = a.homeY - a.y;
+      /** @type {Dir} */
+      const dir = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : dy > 0 ? "down" : "up";
+      await this.world.walk(a, dir, { force: true });
+    }
+    if (a.def?.dir) a.dir = a.def.dir;
+  }
+
   /** Show "!" over someone's head for a moment. @param {string} id */
   async exclaim(id) {
     const a = this.world.actor(id);
@@ -525,7 +541,9 @@ export class Scripts {
     }
     await g.say(t.intro);
     try {
-      await g.battle(t.id);
+      // Beaten, a trainer who walked over goes back to their post rather than stay
+      // standing where they stopped, which can be across a narrow path.
+      if ((await g.battle(t.id)) && spotted) await g.goHome(a.id);
     } catch (e) {
       if (e instanceof ScriptEnd) return;
       throw e;

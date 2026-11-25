@@ -146,3 +146,20 @@ test("the driven scripts really fought their battles", () => {
   // Every trainer in the game, and those fought from scripts: over a hundred wins.
   assert.ok(battles >= 110, `only ${battles} battles were won`);
 });
+
+test("a trainer who walks over to battle goes back to their post once beaten", async () => {
+  seed = 12345;
+  const { game, world, errors } = setup();
+  // Route 1's lass stands at 6,10 looking right; the player steps into her sight at 9,10.
+  await drive(game, world.enter({ map: "route-1", x: 9, y: 10, dir: "left" }));
+  const lass = world.actor("lass");
+  assert.ok(world.checkTrainers(), "the lass didn't see the player");
+  const done = new Promise((resolve) => {
+    const wait = () => (game.busy ? setImmediate(wait) : resolve());
+    setImmediate(wait);
+  });
+  assert.ok(await drive(game, done), "the battle didn't finish");
+  assert.deepEqual(errors, []);
+  assert.ok(game.state.flags["trainer:route1-mira"], "the battle wasn't won");
+  assert.deepEqual([lass.x, lass.y, lass.dir], [6, 10, "right"]);
+});
