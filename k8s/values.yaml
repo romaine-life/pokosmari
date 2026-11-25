@@ -1,6 +1,6 @@
 # The image by tag and digest, rewritten by the suite's pin PR on each release. The first
 # release's pin PR replaces this placeholder, which names no image.
-image: romainecr.azurecr.io/pokosmari:v0.1.2@sha256:c338d1d8089a9ef211a950ac21df8c3d2710bcbcbc38c14e39449d1895969bf1
+image: romainecr.azurecr.io/pokosmari:v0.1.3@sha256:c8c2d748de7a32f280b6a9cb816f2506227fe283e8058f166a3831ff94845856
 imagePullPolicy: IfNotPresent
 
 replicas: 2
