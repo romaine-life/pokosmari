@@ -1,0 +1,35 @@
+# The image by tag and digest, rewritten by the suite's pin PR on each release. The first
+# release's pin PR replaces this placeholder, which names no image.
+image: romainecr.azurecr.io/pokosmari:unreleased@sha256:0000000000000000000000000000000000000000000000000000000000000000
+imagePullPolicy: IfNotPresent
+
+replicas: 2
+
+publicUrl: https://pokosmari.romaine.life
+
+service:
+  port: 80
+  targetPort: http
+
+container:
+  port: 8080
+
+# The server only hands out the game's static files, which browsers cache; this is generous.
+resources:
+  requests:
+    cpu: 10m
+    memory: 24Mi
+  limits:
+    cpu: 250m
+    memory: 96Mi
+
+gateway:
+  hostname: pokosmari.romaine.life
+  parentGateway:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: main
+    namespace: envoy-gateway-system
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer

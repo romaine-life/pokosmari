@@ -1,0 +1,17 @@
+{
+  "name": "pokosmari-game",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The game pokosmari serves; its checks run in the web-app suite.",
+  "scripts": {
+    "lint": "tsc -p .",
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

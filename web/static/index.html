@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" data-base="{{.Base}}" data-version="{{.Version}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokosmari</title>
+  <meta name="description" content="A monster-catching adventure in the Osmari Isles, in the style of the Game Boy games.">
+  <meta property="og:title" content="Pokosmari">
+  <meta property="og:description" content="A monster-catching adventure in the Osmari Isles, in the style of the Game Boy games.">
+  <meta property="og:url" content="{{.PublicURL}}/">
+  <link rel="icon" href="{{.Base}}favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="{{.Base}}style.css">
+  <link rel="modulepreload" href="{{.Base}}src/main.js">
+</head>
+<body>
+  <canvas id="screen" width="160" height="144" aria-label="The game screen"></canvas>
+  <noscript>Pokosmari needs JavaScript to run.</noscript>
+  <script type="module" src="{{.Base}}src/main.js"></script>
+</body>
+</html>

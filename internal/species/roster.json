@@ -1,0 +1,232 @@
+[
+  {
+    "seed": "pokosmari-grass-1",
+    "type": "grass",
+    "role": "starter"
+  },
+  {
+    "seed": "pokosmari-fire-3",
+    "type": "fire",
+    "role": "starter"
+  },
+  {
+    "seed": "pokosmari-water-8",
+    "type": "water",
+    "role": "starter"
+  },
+  {
+    "seed": "pokosmari-normal-3",
+    "type": "normal"
+  },
+  {
+    "seed": "pokosmari-normal-5",
+    "type": "normal"
+  },
+  {
+    "seed": "pokosmari-normal-6",
+    "type": "normal"
+  },
+  {
+    "seed": "pokosmari-normal-8",
+    "type": "normal"
+  },
+  {
+    "seed": "pokosmari-bug-4",
+    "type": "bug"
+  },
+  {
+    "seed": "pokosmari-bug-6",
+    "type": "bug"
+  },
+  {
+    "seed": "pokosmari-bug-7",
+    "type": "bug"
+  },
+  {
+    "seed": "pokosmari-bug-11",
+    "type": "bug"
+  },
+  {
+    "seed": "pokosmari-flying-1",
+    "type": "flying"
+  },
+  {
+    "seed": "pokosmari-flying-2",
+    "type": "flying"
+  },
+  {
+    "seed": "pokosmari-flying-6",
+    "type": "flying"
+  },
+  {
+    "seed": "pokosmari-flying-7",
+    "type": "flying"
+  },
+  {
+    "seed": "pokosmari-water-9",
+    "type": "water"
+  },
+  {
+    "seed": "pokosmari-water-10",
+    "type": "water"
+  },
+  {
+    "seed": "pokosmari-water-12",
+    "type": "water"
+  },
+  {
+    "seed": "pokosmari-water-16",
+    "type": "water"
+  },
+  {
+    "seed": "pokosmari-water-17",
+    "type": "water"
+  },
+  {
+    "seed": "pokosmari-grass-3",
+    "type": "grass"
+  },
+  {
+    "seed": "pokosmari-grass-4",
+    "type": "grass"
+  },
+  {
+    "seed": "pokosmari-grass-8",
+    "type": "grass"
+  },
+  {
+    "seed": "pokosmari-grass-10",
+    "type": "grass"
+  },
+  {
+    "seed": "pokosmari-fire-5",
+    "type": "fire"
+  },
+  {
+    "seed": "pokosmari-fire-7",
+    "type": "fire"
+  },
+  {
+    "seed": "pokosmari-electric-2",
+    "type": "electric"
+  },
+  {
+    "seed": "pokosmari-electric-4",
+    "type": "electric"
+  },
+  {
+    "seed": "pokosmari-electric-9",
+    "type": "electric"
+  },
+  {
+    "seed": "pokosmari-poison-5",
+    "type": "poison"
+  },
+  {
+    "seed": "pokosmari-poison-6",
+    "type": "poison"
+  },
+  {
+    "seed": "pokosmari-ground-10",
+    "type": "ground"
+  },
+  {
+    "seed": "pokosmari-ground-11",
+    "type": "ground"
+  },
+  {
+    "seed": "pokosmari-rock-1",
+    "type": "rock"
+  },
+  {
+    "seed": "pokosmari-rock-3",
+    "type": "rock"
+  },
+  {
+    "seed": "pokosmari-rock-5",
+    "type": "rock"
+  },
+  {
+    "seed": "pokosmari-fighting-4",
+    "type": "fighting"
+  },
+  {
+    "seed": "pokosmari-fighting-5",
+    "type": "fighting"
+  },
+  {
+    "seed": "pokosmari-psychic-1",
+    "type": "psychic"
+  },
+  {
+    "seed": "pokosmari-psychic-2",
+    "type": "psychic"
+  },
+  {
+    "seed": "pokosmari-ghost-9",
+    "type": "ghost"
+  },
+  {
+    "seed": "pokosmari-ghost-22",
+    "type": "ghost"
+  },
+  {
+    "seed": "pokosmari-ghost-23",
+    "type": "ghost"
+  },
+  {
+    "seed": "pokosmari-ice-1",
+    "type": "ice"
+  },
+  {
+    "seed": "pokosmari-ice-2",
+    "type": "ice"
+  },
+  {
+    "seed": "pokosmari-dragon-1",
+    "type": "dragon"
+  },
+  {
+    "seed": "pokosmari-dragon-2",
+    "type": "dragon"
+  },
+  {
+    "seed": "pokosmari-dark-1",
+    "type": "dark"
+  },
+  {
+    "seed": "pokosmari-dark-3",
+    "type": "dark"
+  },
+  {
+    "seed": "pokosmari-steel-3",
+    "type": "steel"
+  },
+  {
+    "seed": "pokosmari-steel-5",
+    "type": "steel"
+  },
+  {
+    "seed": "pokosmari-fairy-2",
+    "type": "fairy"
+  },
+  {
+    "seed": "pokosmari-fairy-6",
+    "type": "fairy"
+  },
+  {
+    "seed": "pokosmari-psychic-12",
+    "type": "psychic",
+    "role": "legendary"
+  },
+  {
+    "seed": "pokosmari-electric-167",
+    "type": "electric",
+    "role": "legendary"
+  },
+  {
+    "seed": "pokosmari-ice-32",
+    "type": "ice",
+    "role": "legendary"
+  }
+]

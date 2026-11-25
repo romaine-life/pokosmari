@@ -1,0 +1,24 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #101418;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#screen {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  display: block;
+  box-shadow: 0 0 0 4px #1c2228, 0 8px 32px #000a;
+}
+
+noscript {
+  color: #e8e8e8;
+  font: 16px system-ui, sans-serif;
+}

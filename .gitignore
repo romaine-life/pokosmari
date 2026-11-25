@@ -1,0 +1,4 @@
+# What go build leaves in the checkout.
+/pokosmari
+*.exe
+node_modules/

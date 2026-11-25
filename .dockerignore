@@ -1,0 +1,6 @@
+# The image builds from source; what a local build leaves behind stays out.
+.git
+.claude
+k8s
+*.exe
+**/node_modules

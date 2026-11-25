@@ -1,0 +1,6 @@
+apiVersion: v2
+name: pokosmari
+description: pokosmari.romaine.life, a browser monster-catching RPG in the Game Boy style.
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
