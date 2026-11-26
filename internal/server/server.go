@@ -8,18 +8,20 @@ import (
 	"html/template"
 	"io"
 	"io/fs"
-	"log/slog"
 	"net/http"
+	"sort"
 	"strings"
 	"time"
+
+	"github.com/romaine-life/logline"
 )
 
 // Config is what the server needs from its environment.
 type Config struct {
-	Static    fs.FS  // the game's files: index.html, src/, data/, style.css, favicon.svg
-	PublicURL string // the site's origin, for share-card links
-	Version   string // the release this build is
-	Log       *slog.Logger
+	Static    fs.FS           // the game's files: index.html, src/, data/, style.css, favicon.svg
+	PublicURL string          // the site's origin, for share-card links
+	Version   string          // the release this build is
+	Log       *logline.Logger // the service's log: stdout, which the cluster keeps
 }
 
 type server struct {
@@ -89,7 +91,7 @@ func (s *server) files() http.Handler {
 
 // clientError logs a script error the game reports, so a crash in someone's browser is in
 // the server's log rather than only on their screen. The body is the game's JSON report,
-// kept to 8 KB.
+// kept to 8 KB; each of its fields is a field of the line.
 func (s *server) clientError(w http.ResponseWriter, r *http.Request) {
 	body, _ := io.ReadAll(io.LimitReader(r.Body, 8<<10))
 	var report map[string]any
@@ -97,8 +99,46 @@ func (s *server) clientError(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "the report must be JSON", http.StatusBadRequest)
 		return
 	}
-	s.Log.Error("client error", "report", report)
+	s.Log.Error("client error", reportFields(report)...)
 	w.WriteHeader(http.StatusNoContent)
+}
+
+// reportFields is a report as a line's key, value pairs, in key order. A key is made a
+// log key (lower case, [a-z0-9_.-], starting with a letter); a value that isn't a string
+// or number is written as its JSON.
+func reportFields(report map[string]any) []any {
+	keys := make([]string, 0, len(report))
+	for k := range report {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	kv := make([]any, 0, 2*len(keys))
+	for _, k := range keys {
+		var value any
+		switch v := report[k].(type) {
+		case string, float64:
+			value = v
+		default:
+			b, _ := json.Marshal(v)
+			value = string(b)
+		}
+		kv = append(kv, logKey(k), value)
+	}
+	return kv
+}
+
+// logKey is k as a log line's key.
+func logKey(k string) string {
+	b := []byte(strings.ToLower(k))
+	for i, c := range b {
+		if !(c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c == '_' || c == '.' || c == '-') {
+			b[i] = '_'
+		}
+	}
+	if len(b) == 0 || b[0] < 'a' || b[0] > 'z' {
+		return "x_" + string(b)
+	}
+	return string(b)
 }
 
 type statusWriter struct {

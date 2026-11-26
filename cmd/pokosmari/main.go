@@ -16,13 +16,13 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"log/slog"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
 
+	"github.com/romaine-life/logline"
 	"github.com/romaine-life/pokosmari/internal/server"
 	"github.com/romaine-life/pokosmari/web"
 )
@@ -33,7 +33,7 @@ var version = "dev"
 func main() {
 	selfTest := flag.Bool("self-test", false, "check the built image's routes and exit")
 	flag.Parse()
-	log := slog.New(slog.NewJSONHandler(os.Stdout, nil))
+	log := logline.New(os.Stdout)
 
 	if *selfTest {
 		if err := runSelfTest(); err != nil {
@@ -56,7 +56,7 @@ func env(name, fallback string) string {
 	return fallback
 }
 
-func run(log *slog.Logger) error {
+func run(log *logline.Logger) error {
 	h, err := server.New(server.Config{
 		Static:    web.Static(),
 		PublicURL: env("PUBLIC_URL", "https://pokosmari.romaine.life"),

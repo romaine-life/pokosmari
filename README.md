@@ -24,8 +24,10 @@ computer.
 ## How it fits together
 
 The server is one Go binary that hands out the game's files and logs the errors the game
-reports. The game is plain JavaScript modules the browser loads directly, with no bundler;
-`tsc` type-checks them from their JSDoc. `docs/design.md` is the engine's contract between
+reports, to stdout as the estate's standard line
+([logline](https://forgejo.romaine.life/romaine-life/logline)). The game is plain
+JavaScript modules the browser loads directly, with no bundler; `tsc` type-checks them
+from their JSDoc. `docs/design.md` is the engine's contract between
 its parts, and `docs/world.md` the region, story and level curve.
 
 | Path | Holds |
